@@ -25,6 +25,8 @@ while i < words_length:
 i = 0
 j = 0
 while i < words_length:
+    j = 0
+    success = True
     #print("i: " + str(i))
     #print("words_length: " + str(words_length))
     while j < term_length and i < words_length:
@@ -35,9 +37,9 @@ while i < words_length:
         else:
             words.remove(words[i])
             words_length -= 1
-            j = 0
-    j = 0
-    i += 1
+            success = False
+    if success:
+        i += 1
 
 print(words)
 
