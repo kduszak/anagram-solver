@@ -14,6 +14,8 @@ words.sort()
 
 term = input("Anagram to solve: ")
 term_length = len(term)
+
+#Cutting all wrong-length words from list
 i = 0
 while i < words_length:
     if (len(words[i]) != term_length):
