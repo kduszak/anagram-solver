@@ -7,8 +7,10 @@ words = list(dictionary['Word'].drop_duplicates())
 thesaurus = pd.read_csv('thesaurus.csv', converters={'Word' : str})
 words = words + list(thesaurus['Word'].drop_duplicates())
 words_length = len(words)
+      
 for i in range(words_length):
     words[i] = words[i].lower()
+
 words.sort()
 
 
@@ -43,6 +45,7 @@ while i < words_length:
     if success:
         i += 1
 
+words = set(words)
 print(words)
 
 
