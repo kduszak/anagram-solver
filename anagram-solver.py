@@ -11,6 +11,7 @@ words_length = len(words)
 for i in range(words_length):
     words[i] = words[i].lower()
 
+#todo: turn list unique here
 words.sort()
 
 
@@ -45,9 +46,14 @@ while i < words_length:
     if success:
         i += 1
 
+
 words = set(words)
 words.remove(term)
-print(words)
+words_length = len(words)
+if (words_length > 0):
+    print(words)
+else:
+    print("No anagrams found")
 
 
 
