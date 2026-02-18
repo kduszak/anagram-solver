@@ -12,7 +12,6 @@ words_length = len(words)
 for i in range(words_length):
     words[i] = words[i].lower()
 
-#todo: turn list unique here
 words.sort()
 
 
@@ -33,14 +32,9 @@ j = 0
 while i < words_length:
     j = 0
     success = True
-    #print("i: " + str(i))
-    #print("words_length: " + str(words_length))
     while j < term_length and i < words_length:
-        #if (re.search("^.*" + term[j] + ".*$", words[i]) and (re.search("^.*" + words[i][j] + ".*$", term))):
         if Counter(term) == Counter(words[i]):
             j+=1
-            #print(words[i] + " " + str(j + 1) + "/" + str(term_length))
-            #print(words[i] + " contains '" + term[j] + "'")
         else:
             words.remove(words[i])
             words_length -= 1
