@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from collections import Counter
 
 # Creating an ordered list of all unique terms from two sources
 dictionary = pd.read_csv('dictionary.csv', converters={'Word' : str})
@@ -35,10 +36,11 @@ while i < words_length:
     #print("i: " + str(i))
     #print("words_length: " + str(words_length))
     while j < term_length and i < words_length:
-        if (re.search("^.*" + term[j] + ".*$", words[i]) and (re.search("^.*" + words[i][j] + ".*$", term))):
+        #if (re.search("^.*" + term[j] + ".*$", words[i]) and (re.search("^.*" + words[i][j] + ".*$", term))):
+        if Counter(term) == Counter(words[i]):
+            j+=1
             #print(words[i] + " " + str(j + 1) + "/" + str(term_length))
             #print(words[i] + " contains '" + term[j] + "'")
-            j += 1
         else:
             words.remove(words[i])
             words_length -= 1
@@ -48,7 +50,8 @@ while i < words_length:
 
 
 words = set(words)
-words.remove(term)
+if term in words:
+    words.remove(term)
 words_length = len(words)
 if (words_length > 0):
     print(words)
