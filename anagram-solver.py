@@ -1,5 +1,4 @@
 import pandas as pd
-import re
 from collections import Counter
 
 # Creating an ordered list of all unique terms from two sources
