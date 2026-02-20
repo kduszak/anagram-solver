@@ -28,19 +28,13 @@ while i < words_length:
         i += 1
 
 i = 0
-j = 0
 while i < words_length:
-    j = 0
-    success = True
-    while j < term_length and i < words_length:
-        if Counter(term) == Counter(words[i]):
-            j+=1
-        else:
-            words.remove(words[i])
-            words_length -= 1
-            success = False
-    if success:
-        i += 1
+    if Counter(term) == Counter(words[i]):
+            i+=1
+    else:
+        words.remove(words[i])
+        words_length -= 1
+        
 
 
 words = set(words)
